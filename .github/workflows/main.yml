@@ -13,4 +13,6 @@ jobs:
 
       - name: Create new file
         run: |
+          ls -a
           echo "Hello, world!" > new_file.txt
+          ls -a
