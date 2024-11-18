@@ -9,14 +9,12 @@ jobs:
       run:
         working-directory: ./scripts
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
-      - name: Create new file
-        run: |
+      - run: |
           echo "Hello, world!" > new_file.txt
-
-      - name: Commit and push
-        uses: EndBug/add-and-commit@v9
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          message: Add new file
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "test"
+          git push
