@@ -18,4 +18,5 @@ jobs:
       - name: Commit and push
         uses: EndBug/add-and-commit@v9
         with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           message: Add new file
