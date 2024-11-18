@@ -9,11 +9,8 @@ jobs:
       run:
         working-directory: ./scripts
     steps:
-      - name: Check out the repository to the runner
-        uses: actions/checkout@v4  
-      - name: Make the script files executable
-        run: chmod +x my-script.sh my-other-script.sh
-      - name: Run the scripts
+      - uses: actions/checkout@v3
+
+      - name: Create new file
         run: |
-          ./my-script.sh
-          ./my-other-script.sh
+          echo "Hello, world!" > new_file.txt
