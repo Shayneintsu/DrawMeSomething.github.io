@@ -1,10 +1,10 @@
 on:
   workflow_dispatch:
     inputs:
-      vartest:
-        description: 'testing variable'
-        required: false
-        default: 'Hello World'
+      cellnb:
+        description: 'cell number'
+        required: true
+        default: '-9'
         type: string
 jobs:
   example-job:
@@ -14,8 +14,12 @@ jobs:
       - uses: actions/checkout@v4
 
       - run: |
-          echo "${{ inputs.vartest }}!" > scripts/new_file.txt
-          bash scripts/myscript.sh
+          if [[ ${{inputs.cellnb}} -lt 0 ]]; then
+            bash scripts/select.sh ${{inputs.cellnb}}
+          else
+            bash scripts/draw.sh ${{inputs.cellnb}}
+          fi
+          
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add .
