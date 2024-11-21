@@ -9,15 +9,13 @@ on:
 jobs:
   example-job:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./scripts
+    
     steps:
       - uses: actions/checkout@v4
 
       - run: |
-          echo "${{ inputs.vartest }}!" > new_file.txt
-          bash myscript.sh
+          echo "${{ inputs.vartest }}!" > scripts/new_file.txt
+          bash scripts/myscript.sh
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add .
