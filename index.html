@@ -9,12 +9,13 @@
    <body>
         <script type="text/javascript">
 
-            var testvar = 'hello'
+            const queryString = window.location.search;
+            const urlParams = new URLSearchParams(queryString);
+            const cell = urlParams.get('cell')
 
 
-            const url = `https://hook.eu2.make.com/k4xatrw21v72f9yeiku5do08y15hnnh7?vartest=${testvar}`;
+            const url = `https://hook.eu2.make.com/k4xatrw21v72f9yeiku5do08y15hnnh7?cellnb=${cell}`;
                 
-            
             const options = {
                 method: 'POST'
             };
@@ -28,8 +29,6 @@
                 .catch(error => console.error(error));
         
         </script>
-    
-
-        <p>Redirecting to another URL</p>
-   </body>
+        
+</body>
 </html>
