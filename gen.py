@@ -1,7 +1,7 @@
 
 
 row = 20
-column = 40
+column = 37
 
 with open("./README.md", "w", encoding='utf-8') as f:
 
@@ -12,8 +12,6 @@ with open("./README.md", "w", encoding='utf-8') as f:
         for y in range(column):
 
             print(f"[\u2B1C](https://shayneintsu.github.io/DrawMeSomething.github.io?cell={i*100+y})", file=f, end="")
-
-            #file.write()
 
         f.write("\n")
 
